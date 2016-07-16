@@ -12,7 +12,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "secret=6LcgOyUTAAAAAEnhfhvkw8jhs8EfVx9E5Uymr5UX&response=".$response);
+            "secret=SERVER-KEY&response=".$response);
 
 // in real life you should use something like:
 // curl_setopt($ch, CURLOPT_POSTFIELDS, 

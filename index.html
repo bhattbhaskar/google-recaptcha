@@ -33,12 +33,12 @@
     <form action="response.php" method="POST">
 
 
-<div class="g-recaptcha" data-sitekey="6LcgOyUTAAAAAAvDcPtVFvH8J9Lx5HFU64FvNxP-"></div>
+<div class="g-recaptcha" data-sitekey="SITE-KEY"></div>
 <noscript>
   <div>
     <div style="width: 302px; height: 422px; position: relative;">
       <div style="width: 302px; height: 422px; position: absolute;">
-        <iframe src="https://www.google.com/recaptcha/api/fallback?k=6LcgOyUTAAAAAAvDcPtVFvH8J9Lx5HFU64FvNxP-"
+        <iframe src="https://www.google.com/recaptcha/api/fallback?k=SITE-KEY"
                 frameborder="0" scrolling="no"
                 style="width: 302px; height:422px; border-style: none;">
         </iframe>
@@ -58,90 +58,6 @@
       <br/>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
-<figure class=highlight>
-<pre>
-<code  class=language-html data-lang=html>
-<h3>Google Recpatcha Html Code</h3>
-<span class=cp>&lt;script src="https://www.google.com/recaptcha/api.js" async defer&gt;&lt;/script &gt;</span>
-    <span class=cp>&lt;form action="response.php" method="POST" &gt;</span>
-    <span class=cp>&lt;div class="g-recaptcha" data-sitekey="site-key"&gt; &lt;/div &gt;</span>
-    <span class=cp>&lt; noscript &gt;</span>
-<span class=cp>&lt; div &gt;</span>
-<span class=cp>&lt; div style="width: 302px; height: 422px; position: relative;" &gt;</span>
-<span class=cp>&lt; div style="width: 302px; height: 422px; position: absolute;" &gt;</span>
-<span class=cp>&lt; iframe src="https://www.google.com/recaptcha/api/fallback?k=site-key </span>
-<span class=cp>frameborder="0" scrolling="no"</span>
-<span class=cp>style="width: 302px; height:422px; border-style: none;" &gt;</span>
-<span class=cp>&lt; /iframe &gt;</span>
-<span class=cp>&lt; /div &gt;</span>
-<span class=cp>&lt; /div &gt;</span>
-<span class=cp>&lt; div style="width: 300px; height: 60px; border-style: none;</span>
-<span class=cp> bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;</span>
-<span class=cp>background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;" &gt;</span>
-<span class=cp>&lt; textarea id="g-recaptcha-response" name="g-recaptcha-response"</span>
-<span class=cp>class="g-recaptcha-response"</span>
-<span class=cp>style="width: 250px; height: 40px; border: 1px solid #c1c1c1;</span>
-<span class=cp>margin: 10px 25px; padding: 0px; resize: none;" &gt;</span>
-<span class=cp>&lt; /textarea &gt;</span>
-<span class=cp>&lt; /div &gt;</span>
-<span class=cp>&lt; /div &gt;</span>
-<span class=cp>&lt; /noscript &gt;</span>
-<span class=cp>&lt; br/ &gt;</span>
-<span class=cp>&lt; input type="submit" value="Submit" &gt;</span>
-<span class=cp>&lt; /form &gt;</span>
-                   
 
-</code>
-</pre>
-</figure>
-
-<!-- php code start -->
-
-<figure class=highlight>
-<pre>
-<code  class=language-html data-lang=html>
-<h3>Google Recpatcha Php Code</h3>
-<span class=cp>
-&lt;?php
-
-$response="";
-if(isset($_REQUEST["g-recaptcha-response"])){
-
-	$response=$_REQUEST["g-recaptcha-response"];
-
-}
-
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "secret=YOUR-SECRET-KEY&response=".$response);
-
-// in real life you should use something like:
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 
-//          http_build_query(array('postvar1' => 'value1')));
-
-// receive server response ...
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$server_output = curl_exec ($ch);
-
-curl_close ($ch);
-
-$server_output=json_decode($server_output,1);
-if($server_output["success"]){
-	echo "captcha is valid";
-}else{
-	echo "Captcha Is not Valid";
-}
-
-?>
-</span>
-</code>
-</figure>
-<!-- php code end -->
-
-</div>
   </body>
 </html>
